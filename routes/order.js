@@ -10,6 +10,8 @@ router.post(
   validators.validate([
     body("address", "Invalid value").exists().notEmpty(),
     body("houseNumber", "Invalid value").exists().notEmpty(),
+    body("houseType", "Invalid value").exists().notEmpty(),
+    body("date", "Invalid value").exists().notEmpty(),
   ]),
   orderController.register
 );

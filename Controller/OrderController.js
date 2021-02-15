@@ -32,7 +32,6 @@ orderController.register = async (req, res, next) => {
       maid,
       pet,
     });
-
     return res.status(200).json({ status: "success", data: order });
   } catch (err) {
     return res.status(401).json({ status: "fail", message: err.message });
@@ -41,7 +40,7 @@ orderController.register = async (req, res, next) => {
 
 orderController.get = async (req, res, next) => {
   try {
-    const orders = await Order.find();
+    const orders = await Order.find({}).sort({ date: 1 });
     if (orders) {
       return res.status(200).json({ status: "success", data: orders });
     } else {
